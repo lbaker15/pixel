@@ -1,0 +1,170 @@
+:root {
+    --padding: 20px;
+    --linksHeight: 450px;
+}
+.cursor {
+    position: absolute;
+    width: 25px; height: 25px; background: white;
+    border-radius: 50%;
+    z-index: 10;
+    display: none;
+    pointer-events: none;
+    top: 0; left: 0;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin-bottom: 10px;
+    overflow-x: hidden;
+}
+.image {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    display: flex; align-items: center;
+    left: 0;
+    background: black;
+}
+.image__bg {
+    background-image: url("./Paloma.png");
+    width: 100%;
+    height: 95vh;
+    z-index: 1;
+    background-position: 40% 50%;
+    background-size: cover;
+    max-width: 1000px;
+    margin-left: auto; margin-right: auto;
+}
+.image__title {
+    width: 26.5vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    z-index: 3;
+    top: 0px;
+    margin-left: var(--padding);
+    justify-content: center;
+}
+.image__title-inner {
+    width: 100%;
+    pointer-events: none;
+    height: auto;
+}
+.vector-outer {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.image__links {
+    width: auto;
+    height: auto;
+    bottom: 10px;
+    z-index: 2;
+    position: absolute;
+    right: 20px;
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+    grid-template-rows: auto;
+}
+.image__link-in {
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+.image__link-in:hover {
+    transform: translateY(20px);
+    color: rgba(255, 255, 255, 1);
+}
+.image__link {
+    grid-column: span 1;
+    font-family: "Anton";
+    height: 100%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: calc(35px + 3vw);
+    transition: all 0.2s ease;
+    line-height: calc(50px + 3.5vw);
+    letter-spacing: calc((35px + 3vw) / 15);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: scale(-1, -1);
+}
+@media (max-width: 1060px) {
+    .image__link-in:hover {
+        transform: translateX(-20px);
+        color: rgba(255, 255, 255, 1);
+    }
+    .image__bg {
+        background-position: 17% 50%;
+    }
+    .image__links {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        width: 400px;
+        height: 95vh;
+        top: 2.5vh;
+        left: auto;
+        right: 20px;
+    }
+    .image__link {
+        grid-row: span 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        writing-mode: unset;
+        text-orientation: unset;
+        font-size: 70px;
+        letter-spacing: 4px;
+        transform: scale(1, 1);
+    }
+}
+@media (max-width: 640px) {
+    .image__link-in:hover {
+        transform: translateY(20px);
+        color: rgba(255, 255, 255, 1);
+    }
+    .image__bg {
+        background-position: 40% 50%;
+    }
+    .image__title {
+        width: 16vh;
+        display: flex;
+        flex-direction: column;
+        height: 60vh;
+        top: 2vh;
+        margin-left: var(--padding);
+        justify-content: flex-start;
+    }
+    .image__links {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        width: 100%;
+        height: auto;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        bottom: 0;
+        position: absolute;
+    }
+    .image__link {
+        grid-column: span 1;
+        justify-content: flex-start;
+        writing-mode: vertical-rl;
+        overflow: hidden;
+        text-orientation: mixed;
+        padding-bottom: 25px;
+        font-size: calc(20px + 7vw);
+        letter-spacing: calc((20px + 7vw) / 15);
+        transform: scale(-1, -1);
+    }
+    .image__link-in {
+        /* overflow: visible; */
+    }
+}
